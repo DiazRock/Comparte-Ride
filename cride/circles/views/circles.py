@@ -24,4 +24,3 @@ class CircleViewSet(viewsets.ModelViewSet):
         if self.action == 'list':
             return queryset.filter(is_public = True)
         return queryset
-        
