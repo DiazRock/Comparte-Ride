@@ -1,20 +1,29 @@
 """ Users views """
 
 # Django REST Framework
-from rest_framework import status
+from rest_framework import status, viewsets
+from rest_framework.decorators import action
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
 
 # Serializers
-from cride.users.serializers import UserLoginSerializer, UserModelSerializer
+from cride.users.serializers import (
+    UserLoginSerializer, 
+    UserModelSerializer,
+    UserSignUpSerializer,
+    AccountVerificationSerializer)
 
 
-class UserLoginAPIView(APIView):
-    """ User Login Api View """
+class UserViewSet(viewsets.GenericViewSet):
+    """ User view set
     
-    def post(self, request, *args, **kwargs):
-        """ Handle HTTP POST request """
+    Handle sign up, login and account verification. 
+    """
+    
+    @action(detail= False, methods=['post'])
+    def login(self, request):
+        """ User sign up. """
         serializer = UserLoginSerializer(data= request.data)
         serializer.is_valid(raise_exception= True)
         user, token = serializer.save()
@@ -23,23 +32,19 @@ class UserLoginAPIView(APIView):
             'access_token': token
         }
         return Response(data, status = status.HTTP_201_CREATED)
-
-class UserSignUpAPIView(APIView):
-    """ User sign up API View """
     
-    def post(self, request, *args, **kwargs):
-        """ Handle HTTP POST request """
-        serializer = UserSignUpView(data= request.data)
+    @action(detail = False, methods= ['post'])
+    def signup(self, request):
+        """ User signup """
+        serializer = UserSignUpSerializer(data= request.data)
         serializer.is_valid(raise_exception= True)
         user = serializer.save()
         data = UserModelSerializer(user).data
         return Response(data, status = status.HTTP_201_CREATED)
-        
-class AccountVerificationAPIView(APIView):
-    """ Account verification API view """
     
-    def post(self, request, *args, **kwargs):
-        """ Handle HTTP POST request """
+    @action(detail= False, methods= ['post'])
+    def verify(self, request):
+        """ Account verification """
         serializer = AccountVerificationSerializer(data= request.data)
         serializer.is_valid(raise_exception= True)
         serializer.save()
