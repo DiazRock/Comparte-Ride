@@ -8,7 +8,7 @@ import random
 from string import ascii_uppercase, digits
 
 
-class InvitaionManager(models.Manager):
+class InvitationManager(models.Manager):
     """ Invitation manager.
     
     Used to handle code creation.
@@ -25,4 +25,4 @@ class InvitaionManager(models.Manager):
             
         kwargs['code'] = code
         
-        return super(InvitaionManager, self).create(**kwargs)
+        return super(InvitationManager, self).create(**kwargs)
