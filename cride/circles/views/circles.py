@@ -11,7 +11,7 @@ from cride.circles.serializers import CircleModelSerializer
 from cride.circles.models import Circle, Membership
 
 # Permissions
-from cride.permissions.circles import IsCircleAdmin 
+from cride.circles.permissions import IsCircleAdmin 
 
 
 class CircleViewSet(
