@@ -48,6 +48,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'cride.users.apps.UsersAppConfig',
     'cride.circles.apps.CirclesAppConfig',
+    'cride.rides.apps.RidesAppConfig',
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -165,5 +166,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication'
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 3
+    'PAGE_SIZE': 10
 }
