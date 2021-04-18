@@ -116,6 +116,3 @@ class AddMemberSerializer(serializers.Serializer):
         
         return member
         
-        
-        
-        

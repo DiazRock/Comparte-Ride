@@ -10,7 +10,7 @@ from rest_framework.response import Response
 from cride.circles.serializers import MembershipModelSerializer, AddMemberSerializer
 
 # Models
-from cride.circles.models import Circle, Membership, Invitations
+from cride.circles.models import Circle, Membership, Invitation
 
 # Permissions
 from rest_framework.permissions import IsAuthenticated
