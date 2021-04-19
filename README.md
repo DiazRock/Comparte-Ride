@@ -127,7 +127,7 @@ The final app is an API-REST, that can express in URL format, all the info that 
 
 ### The structure
 
-The application uses [cookiecuter-django-api] (https://github.com/gianfrancolombardo/cookiecutter-django-api). This template bring a boilerplate with 4 docker services: Postgres, Django, Redis, and Celery. Celery is splitted in 3 docker images: celeryworker, celerybeat and flowers (a graphic interface for see the celery tasks in real time). The django container actualize the code on the fly when we running it locally: we write the base code, on our machine, and we can see the changes on the container when we save it (That's an amazing feature, by the way). We also have here, all the necesary configuration in order to deploy locally our app, and develop it. Just simply run:
+The application uses [cookiecuter-django-api](https://github.com/gianfrancolombardo/cookiecutter-django-api). This template bring a boilerplate with 4 docker services: Postgres, Django, Redis, and Celery. Celery is splitted in 3 docker images: celeryworker, celerybeat and flowers (a graphic interface for see the celery tasks in real time). The django container actualize the code on the fly when we running it locally: we write the base code, on our machine, and we can see the changes on the container when we save it (That's an amazing feature, by the way). We also have here, all the necesary configuration in order to deploy locally our app, and develop it. Just simply run:
 
 - `sudo docker-compose -f local.yml build`
 - `sudo docker-compose -f local.yml up`
